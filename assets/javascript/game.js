@@ -1,9 +1,6 @@
 
-// Have computer guess a-z randomly for Psychic Game:
 
-      var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-// Create variables to hold the number of wins, losses, and guesses. They will all start at 0.
+// Create global variables to hold the number of wins, losses, and guesses. They will all start at 0. This will happen outside of the function to keep score.
 
       var wins = 0;
       var losses = 0;
@@ -15,6 +12,10 @@
       document.onkeyup = function(event) {
 
         var userGuess = event.key;
+        
+// Have computer guess a-z randomly for Psychic Game:
+
+        var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 //  Decide if userGuess same as computerGuess and if it is: note that by adding 1 to the wins variable.  If not equals to then let userGuess again 
 //  for a loop of up to 9 tries and add 1 to the guessesSofar variable.  After 9 tries if they don't guess the letter let them know the game is over
@@ -29,11 +30,11 @@
             losses++; guessesSofar++; guessesLeft--;
         } 
 
-        if ((userGuess == computerGuess)) {
+        if ((userGuess === computerGuess)) {
             wins++; guessesSofar++; guessesLeft--;
         }
 
-        if (guessesLeft == 0) {
+        if (guessesLeft === 0) {
             alert("You have guessed 9 times, Game Over, Start New Game");
             location.reload();
         }
@@ -46,7 +47,7 @@
           "<p>The computer chose: " + computerGuess +"</p>" +
           "<p>Wins: " + wins + "</p>" +
           "<p>Losses: " + losses + "</p>" + 
-          "<p>Your Guesses So far: " + userGuess + "</p>" +
+          "<p>Your Guesses So far: " + guessesSofar + "</p>" +
           "<p>Guesses Left: " + guessesLeft + "</p>"
 
 // Set the inner HTML contents of the game to the html string.
